@@ -58,6 +58,7 @@ export default defineConfig({
         items: [
           { text: '简介', link: '/code-execution/' },
           { text: '命名空间', link: '/code-execution/namespace' },
+          { text: '控制组', link: '/code-execution/control-group' },
         ]
       },
       {

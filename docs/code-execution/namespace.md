@@ -2,9 +2,16 @@
 
 ## 概述
 
-**Linux 命名空间（Namespaces）** 是 Linux 内核的一项关键特性，用于提供资源隔离机制。它允许不同的进程“看到”系统的不同视图，从而实现进程间资源的隔离。这是实现容器技术（如 Docker、LXC 等）的核心技术之一。
+[**Linux 命名空间（Namespaces）**](https://man7.org/linux/man-pages/man7/namespaces.7.html) 是 Linux 内核的一项关键特性，用于提供资源隔离机制。它允许不同的进程“看到”系统的不同视图，从而实现进程间资源的隔离。这是实现容器技术（如 Docker、LXC 等）的核心技术之一。
 
 通过命名空间，系统资源如进程 ID、挂载点、网络接口等可以被划分为多个隔离的子集。每个子集对应一个命名空间，运行在不同命名空间的进程不会相互影响。
+
+在沙箱的实现中，最重要的隔离命名空间包括
+
+- 挂载（mount）：避免用户程序访问任意文件（例如测试点，数据库文件等）
+- 用户（user）：避免用户程序获取特权
+- 进程（pid）：避免用户程序分析其他进程信息并与其它进程交流
+- 网络（network）：避免用户程序访问网络
 
 ## 类型
 
@@ -21,15 +28,13 @@
 | Cgroup  | `CLONE_NEWCGROUP`          | 控制组（资源限制）      |
 | Time    | `CLONE_NEWTIME`            | 系统时间与时钟        |
 
-在沙箱的实现中，最重要的隔离命名空间为 挂载（mount），用户（user），进程（pid）和网络（network）。
-
 ### 系统调用
 
 命名空间是通过以下系统调用实现的：
 
-* `clone(flags, ...)`：创建子进程并指定新的命名空间。
-* `unshare(flags)`：让当前进程脱离某个命名空间。
-* `setns(fd, nstype)`：将当前进程加入已有命名空间。
+- [`clone(flags, ...)`](https://man7.org/linux/man-pages/man2/clone.2.html)：创建子进程并指定新的命名空间。
+- [`unshare(flags)`](https://man7.org/linux/man-pages/man2/unshare.2.html)：让当前进程脱离某个命名空间。
+- [`setns(fd, nstype)`](https://man7.org/linux/man-pages/man2/setns.2.html)：将当前进程加入已有命名空间。
 
 ## 各类命名空间详解
 
@@ -39,9 +44,11 @@
 
 在不同的 mount namespace 中，进程可以挂载或卸载文件系统而不影响其他命名空间。这是实现容器拥有自己文件系统视图的基础。
 
-为了和主机的文件系统隔离，通常来说运行环境会创建一个虚拟的根文件系统，然后通过换根操作 `chroot` / `pivot_root` 切换到虚拟的根文件系统。
+为了和主机的文件系统隔离，通常来说运行环境会创建一个虚拟的根文件系统，然后通过换根操作 `chroot` / `pivot_root` 切换到虚拟的根文件系统。进行换根操作之后，需要 `chdir` 切换工作目录避免对于之前文件系统的访问。
 
 根文件系统可以使用容器软件 `docker` 或者 `arch-chroot` 之类的软件创建，或者直接使用 `bind` 挂载主机的文件系统动态生成。
+
+特别的，在创建挂载命名空间之后，需要使用 [`mount`](https://man7.org/linux/man-pages/man2/mount.2.html) 改变根文件挂载属性到 `private` 来避免和原有挂载冲突。
 
 ### 用户（User）
 
