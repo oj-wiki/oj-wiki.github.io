@@ -57,14 +57,21 @@ export default defineConfig({
         text: '代码执行',
         items: [
           { text: '简介', link: '/code-execution/' },
-          { text: '命名空间', link: '/code-execution/namespace' },
-          { text: '控制组', link: '/code-execution/control-group' },
+          { text: '命名空间（namespace）', link: '/code-execution/namespace' },
+          { text: '控制组（cgroup）', link: '/code-execution/control-group' },
+          { text: '资源限制（rlimit）', link: '/code-execution/rlimit' },
+          { text: '安全计算（seccomp）', link: '/code-execution/seccomp' },
+          { text: '调试（ptrace）', link: '/code-execution/ptrace' },
+        ]
+      },
+      {
+        text: '编译器',
+        items: [
         ]
       },
       {
         text: '开源实现',
         items: [
-          { text: '简介', link: '/code-execution/' },
         ]
       }],
     },

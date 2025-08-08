@@ -2,8 +2,12 @@
 
 - 沙箱
   - namespace
+    - capabilities
+    - - chroot / pivot_root
+    - overlayFS
   - control group
-  - chroot
+  - rlimit
   - seccomp
+  - ptrace
 - 编译器
   - 各种语言代码的编译与执行
