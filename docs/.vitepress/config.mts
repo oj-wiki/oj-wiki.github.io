@@ -57,6 +57,7 @@ export default defineConfig({
         text: '代码执行',
         items: [
           { text: '简介', link: '/code-execution/' },
+          { text: '命名空间', link: '/code-execution/namespace' },
         ]
       },
       {
