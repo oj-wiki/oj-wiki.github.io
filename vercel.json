@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": ".vitepress/dist/$1"
+      "dest": "docs/.vitepress/dist/$1"
     }
   ],
   "env": {
