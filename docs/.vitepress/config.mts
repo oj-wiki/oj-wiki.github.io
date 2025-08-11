@@ -57,6 +57,7 @@ export default defineConfig({
         text: '代码执行',
         items: [
           { text: '简介', link: '/code-execution/' },
+          { text: '创建子进程（fork + exec）', link: '/code-execution/fork-exec' },
           { text: '命名空间（namespace）', link: '/code-execution/namespace' },
           { text: '控制组（cgroup）', link: '/code-execution/control-group' },
           { text: '资源限制（rlimit）', link: '/code-execution/rlimit' },
