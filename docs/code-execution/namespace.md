@@ -9,7 +9,7 @@
 在沙箱的实现中，最重要的隔离命名空间包括
 
 - 挂载（mount）：避免用户程序访问任意文件（例如测试点，数据库文件等）
-- 用户（user）：避免用户程序获取特权
+- [用户（user）](https://man7.org/linux/man-pages/man7/user_namespaces.7.html)：避免用户程序获取特权
 - 进程（pid）：避免用户程序分析其他进程信息并与其它进程交流
 - 网络（network）：避免用户程序访问网络
 
@@ -33,7 +33,7 @@
 命名空间是通过以下系统调用实现的：
 
 - [`clone(flags, ...)`](https://man7.org/linux/man-pages/man2/clone.2.html)：创建子进程并指定新的命名空间。
-- [`unshare(flags)`](https://man7.org/linux/man-pages/man2/unshare.2.html)：让当前进程脱离某个命名空间。
+- [`unshare(flags)`](https://man7.org/linux/man-pages/man2/unshare.2.html) [unshare](https://www.kernel.org/doc/html/v4.16/userspace-api/unshare.html)：让当前进程脱离某个命名空间。
 - [`setns(fd, nstype)`](https://man7.org/linux/man-pages/man2/setns.2.html)：将当前进程加入已有命名空间。
 
 ## 各类命名空间详解

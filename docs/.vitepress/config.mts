@@ -68,11 +68,18 @@ export default defineConfig({
       {
         text: '编译器',
         items: [
+          { text: 'C/C++ 编译器', link: '/code-execution/c' },
+          { text: 'Python 编译器', link: '/code-execution/python' },
+          { text: 'Java 编译器', link: '/code-execution/java' },
+          { text: 'Go 编译器', link: '/code-execution/go' },
+          { text: 'Rust 编译器', link: '/code-execution/rust' },
+          { text: '其他编译器', link: '/code-execution/other-language' },
         ]
       },
       {
         text: '开源实现',
         items: [
+          { text: 'go-judge', link: '/code-execution/go-judge' },
         ]
       }],
     },
