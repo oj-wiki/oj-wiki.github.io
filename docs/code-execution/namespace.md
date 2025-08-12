@@ -8,10 +8,10 @@
 
 在沙箱的实现中，最重要的隔离命名空间包括
 
-- 挂载（mount）：避免用户程序访问任意文件（例如测试点，数据库文件等）
+- 挂载（mount）：避免用户程序访问任意文件（例如测试点，数据库文件等）[umount](https://man7.org/linux/man-pages/man2/umount.2.html) [mount](https://man7.org/linux/man-pages/man2/mount.2.html)
 - [用户（user）](https://man7.org/linux/man-pages/man7/user_namespaces.7.html)：避免用户程序获取特权
 - 进程（pid）：避免用户程序分析其他进程信息并与其它进程交流
-- 网络（network）：避免用户程序访问网络
+- 网络（network）：避免用户程序访问网络。[netlink](https://man7.org/linux/man-pages/man7/netlink.7.html)
 
 ## 类型
 

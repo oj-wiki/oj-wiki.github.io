@@ -9,6 +9,8 @@
 - 资源使用统计：`cpuacct`, `memory` 统计的 CPU，内存使用量
 - 资源使用限制：`cpu`，`cpuset`,`memory`,`pids` 限制 CPU ，内存，和进程数量
 
+在使用 `systemD` 的系统中，最佳实践是与 `systemd` 通过 `dbus` 交流并创建 [DELEGATION](https://systemd.io/CGROUP_DELEGATION/)
+
 ## cgroups 的核心能力
 
 cgroups 提供了对以下几种资源的**精细化控制**：

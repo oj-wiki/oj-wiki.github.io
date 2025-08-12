@@ -80,6 +80,7 @@ export default defineConfig({
         text: '开源实现',
         items: [
           { text: 'go-judge', link: '/code-execution/go-judge' },
+          { text: 'misc', link: '/code-execution/misc' },
         ]
       }],
     },

@@ -1,14 +1,11 @@
 # 代码执行
 
-- Linux
-  - namespace
-    - [capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html) [capget](https://man7.org/linux/man-pages/man2/capget.2.html)
-      - chroot / pivot_root
-    - overlayFS
-  - control group
-  - rlimit
-  - seccomp
-  - ptrace
-  - [prctl](https://man7.org/linux/man-pages/man2/prctl.2.html)
-- 编译器
-  - 各种语言代码的编译与执行
+在用户提交代码之后，需要在一个安全，受信任，一致的环境中编译，并执行用户的代码。代码执行需要满足
+
+- 环境一致：避免运行环境对结果的影响。理想情况下，运行硬件和软件需要保持一致。
+- 环境隔离：用户程序可能包含恶意代码，需要保证不会修改或者破坏环境，窃取机密信息
+- 资源限制：用户程序需要在题目给定的 CPU ，内存等限制下运行
+- 资源统计：用户程序运行结束后，需要统计使用的系统资源
+- 文件收集：需要在执行前准备输入文件，并在执行后收集产生的输出文件
+
+文档提供了在 Linux 下常用的资源隔离技术，以及各个编译器的参数和开源实现。

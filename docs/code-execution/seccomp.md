@@ -6,7 +6,7 @@
 
 在沙箱实现中， `seccomp` 通常使用白名单限制程序使用安全的系统调用（`syscall`），或者与 `ptrace` 结合，深度判断系统调用参数的安全性。
 
-通常在子进程运行用户进程前，使用 [seccomp](https://man7.org/linux/man-pages/man2/seccomp.2.html) 系统调用实现。
+通常在子进程运行用户进程前，使用 [seccomp](https://man7.org/linux/man-pages/man2/seccomp.2.html) 系统调用实现。[syscalls](https://man7.org/linux/man-pages/man2/syscalls.2.html)。[seccomp profile of docker](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json)。[bootlin](https://bootlin.com) 。[The linux documentation project](https://tldp.org/guides.html)
 
 ## seccomp 的工作模式
 

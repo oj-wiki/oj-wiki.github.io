@@ -23,26 +23,26 @@
 - 环境变量
 - 命令行参数
 - 资源限制：
-  - 基于 Rlimit 的限制
+  - [基于 Rlimit 的限制](./rlimit)
     - 最大 CPU 时间，
     - 最大写入量，
     - 最多可打开文件数量，
     - 最大进程数量
     - 堆栈大小限制，可使用，可申请的最大内存等
-  - 所属控制组（`cgroup`）
+  - 所属[控制组（`cgroup`）](./control-group)
 - 安全限制
   - 进程所属的用户
-  - 用户组已经当前持有的特权
-  - 能否提升特权
-  - Seccomp，apparmor，selinux 等安全配置
-  - 进程所处的命名空间隔离
+  - [用户组已经当前持有的特权](https://man7.org/linux/man-pages/man7/capabilities.7.html)
+  - [能否提升特权](https://man7.org/linux/man-pages/man2/capget.2.html)
+  - [Seccomp](./seccomp)，apparmor，selinux 等安全配置 [prctl](https://man7.org/linux/man-pages/man2/prctl.2.html)
+  - 进程所处的[命名空间隔离](./namespace)
 - 文件系统：
   - 当前的工作目录
   - 根目录（`chroot`）
   - 打开的文件描述符
   - 创建掩码（`umask`）
 - 进程信号：信号处理函数，掩码等
-- Ptrace 状态：是否正在被调试
+- [Ptrace 状态](./ptrace)：是否正在被调试
 
 ## 例子
 
