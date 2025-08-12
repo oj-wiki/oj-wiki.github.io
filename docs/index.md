@@ -3,23 +3,25 @@
 layout: home
 
 hero:
-  name: "OJ Wiki"
-  text: "开源在线评测系统 (Online Judge) Wiki"
-  tagline: 总结在线评测系统使用的系统架构，技术，和规范
+  name: "Online Judge Wiki"
+  #text: "在线评测系统 Wiki"
+  tagline: 在线评测系统使用的术语，规范，系统架构和技术 (Constructing)
   actions:
     - theme: brand
-      text: 正在施工
+      text: 介绍
       link: /online-judge/
     - theme: alt
-      text: 正在施工
-      link: /online-judge/
+      text: 沙箱
+      link: /code-execution/
 
 features:
-  - title: 赛制
-    details: 多种类型比赛的记分规范和细节 OI，IOI，ACM 等等
+  - title: 比赛
+    details: 多种类型赛制的记分规范和细节
   - title: 题目
     details: 多种类型题目的设计规范和细节
   - title: 系统架构
-    details: 在线评测系统的系统架构，安全沙箱的实现细节
+    details: 在线评测系统的系统架构
+  - title: 代码执行
+    details: 安全沙箱的实现细节
 ---
 

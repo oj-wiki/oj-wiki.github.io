@@ -26,6 +26,10 @@ export default defineConfig({
         text: '开源 OJ',
         items: [
           { text: 'Hydro', link: '/online-judge/hydro' },
+          { text: 'UOJ', link: '/online-judge/uoj' },
+          { text: 'LOJ', link: '/online-judge/lyrio' },
+          { text: 'DomJudge', link: '/online-judge/domjudge' },
+          { text: 'Misc', link: '/online-judge/misc' },
         ]
       }],
       '/contest/': [{
