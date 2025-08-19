@@ -13,7 +13,6 @@ export default defineConfig({
       { text: '题目', link: '/problem/' },
       { text: '系统架构', link: '/system-architecture/' },
       { text: '评测', link: '/judge/' },
-      { text: '代码执行', link: '/code-execution/' },
     ],
 
     sidebar: {
@@ -33,15 +32,57 @@ export default defineConfig({
         ]
       }],
       '/contest/': [{
-        text: '比赛',
+        text: '比赛赛制',
         items: [
           { text: '简介', link: '/contest/' },
+          { text: 'OI', link: '/contest/' },
+          { text: 'IOI', link: '/contest/' },
+          { text: 'ICPC', link: '/contest/' },
+          { text: 'Codeforces', link: '/contest/' },
+        ]
+      },
+      {
+        text: '比赛流程管理',
+        items: [
+          { text: '排行榜', link: '/contest/' },
+          { text: '评测 & 重测', link: '/contest/' },
+          { text: '组队', link: '/contest/' },
+          { text: '公告', link: '/contest/' },
+          { text: '反作弊', link: '/contest/' },
         ]
       }],
       '/problem/': [{
-        text: '题目',
+        text: '题目描述',
         items: [
           { text: '简介', link: '/problem/' },
+          { text: '标准组件', link: '/problem/' },
+        ]
+      },
+      {
+        text: '题目类型',
+        items: [
+          { text: '普通题', link: '/problem/' },
+          { text: '提交答案', link: '/problem/' },
+          { text: '交互题', link: '/problem/' },
+        ]
+      },
+      {
+        text: '测试数据',
+        items: [
+          { text: '数据类型', link: '/problem/' },
+          { text: 'SPJ', link: '/problem/' },
+        ]
+      },
+      {
+        text: '交换格式',
+        items: [
+          { text: '交换格式', link: '/problem/' },
+        ]
+      },
+      {
+        text: '出题工具',
+        items: [
+          { text: 'Generator & Validator', link: '/problem/' },
         ]
       }],
       '/system-architecture/': [{
@@ -49,6 +90,18 @@ export default defineConfig({
         items: [
           { text: '简介', link: '/system-architecture/' },
           { text: '前端', link: '/system-architecture/front-end' },
+          { text: '后端', link: '/system-architecture/' },
+          { text: '任务调度', link: '/system-architecture/' },
+          { text: '评测机', link: '/system-architecture/' },
+          { text: '数据存储', link: '/system-architecture/' },
+        ]
+      },
+      {
+        text: '扩展',
+        items: [
+          { text: '缓存管理', link: '/system-architecture/' },
+          { text: '可观测化', link: '/system-architecture/' },
+          { text: '水平扩展', link: '/system-architecture/' },
         ]
       }],
       '/judge/': [{
@@ -56,36 +109,36 @@ export default defineConfig({
         items: [
           { text: '简介', link: '/judge/' },
         ]
-      }],
-      '/code-execution/': [{
-        text: '代码执行',
+      },
+      {
+        text: '沙箱',
         items: [
-          { text: '简介', link: '/code-execution/' },
-          { text: '创建子进程（fork + exec）', link: '/code-execution/fork-exec' },
-          { text: '命名空间（namespace）', link: '/code-execution/namespace' },
-          { text: '控制组（cgroup）', link: '/code-execution/control-group' },
-          { text: '资源限制（rlimit）', link: '/code-execution/rlimit' },
-          { text: '安全计算（seccomp）', link: '/code-execution/seccomp' },
-          { text: '调试（ptrace）', link: '/code-execution/ptrace' },
-          { text: '常见恶意代码', link: '/code-execution/malicious-code' },
+          { text: '简介', link: '/judge/sandbox/' },
+          { text: '创建子进程（fork + exec）', link: '/judge/sandbox/fork-exec' },
+          { text: '命名空间（namespace）', link: '/judge/sandbox/namespace' },
+          { text: '控制组（cgroup）', link: '/judge/sandbox/control-group' },
+          { text: '资源限制（rlimit）', link: '/judge/sandbox/rlimit' },
+          { text: '安全计算（seccomp）', link: '/judge/sandbox/seccomp' },
+          { text: '调试（ptrace）', link: '/judge/sandbox/ptrace' },
+          { text: '常见恶意代码', link: '/judge/sandbox/malicious-code' },
         ]
       },
       {
         text: '编译器',
         items: [
-          { text: 'C/C++ 编译器', link: '/code-execution/c' },
-          { text: 'Python 编译器', link: '/code-execution/python' },
-          { text: 'Java 编译器', link: '/code-execution/java' },
-          { text: 'Go 编译器', link: '/code-execution/go' },
-          { text: 'Rust 编译器', link: '/code-execution/rust' },
-          { text: '其他编译器', link: '/code-execution/other-language' },
+          { text: 'C/C++ 编译器', link: '/judge/compiler/c' },
+          { text: 'Python 编译器', link: '/judge/compiler/python' },
+          { text: 'Java 编译器', link: '/judge/compiler/java' },
+          { text: 'Go 编译器', link: '/judge/compiler/go' },
+          { text: 'Rust 编译器', link: '/judge/compiler/rust' },
+          { text: '其他编译器', link: '/judge/compiler/other-language' },
         ]
       },
       {
         text: '开源实现',
         items: [
-          { text: 'go-judge', link: '/code-execution/go-judge' },
-          { text: 'misc', link: '/code-execution/misc' },
+          { text: 'go-judge', link: '/judge/sandbox/go-judge' },
+          { text: 'misc', link: '/judge/sandbox/misc' },
         ]
       }],
     },
