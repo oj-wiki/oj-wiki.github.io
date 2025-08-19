@@ -67,6 +67,7 @@ export default defineConfig({
           { text: '资源限制（rlimit）', link: '/code-execution/rlimit' },
           { text: '安全计算（seccomp）', link: '/code-execution/seccomp' },
           { text: '调试（ptrace）', link: '/code-execution/ptrace' },
+          { text: '常见恶意代码', link: '/code-execution/malicious-code' },
         ]
       },
       {

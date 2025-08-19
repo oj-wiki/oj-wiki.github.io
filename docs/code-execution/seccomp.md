@@ -55,3 +55,5 @@ Linux 提供三种 seccomp 模式：
 | `SECCOMP_RET_USER_NOTIF`   | 通知用户空间进程（v5.0+）       |
 
 使用 `SECCOMP_RET_TRACE` 时，需要在 `seccomp` 系统调用前 attch 调试器，通常需要子进程给自身发送暂停信号。由调试器捕获之后再继续。
+
+[常用 syscall 参数参考](https://aquasecurity.github.io/tracee/dev/docs/events/)
