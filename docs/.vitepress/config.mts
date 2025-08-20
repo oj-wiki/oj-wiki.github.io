@@ -35,20 +35,12 @@ export default defineConfig({
         text: '比赛赛制',
         items: [
           { text: '简介', link: '/contest/' },
-          { text: 'OI', link: '/contest/oi' },
-          { text: 'IOI', link: '/contest/ioi' },
-          { text: 'ICPC', link: '/contest/icpc' },
-          { text: 'Codeforces', link: '/contest/codeforces' },
         ]
       },
       {
         text: '比赛流程管理',
         items: [
-          { text: '排行榜', link: '/contest/leaderboard' },
-          { text: '评测 & 重测', link: '/contest/rejudge' },
-          { text: '组队', link: '/contest/team' },
-          { text: '公告', link: '/contest/announcement' },
-          { text: '反作弊', link: '/contest/anti-cheat' },
+          { text: '管理', link: '/contest/management' },
         ]
       }],
       '/problem/': [{
@@ -71,6 +63,7 @@ export default defineConfig({
         items: [
           { text: '数据类型', link: '/problem/test-data' },
           { text: 'SPJ', link: '/problem/spj' },
+          { text: '记分策略', link: '/problem/scoring' },
         ]
       },
       {
