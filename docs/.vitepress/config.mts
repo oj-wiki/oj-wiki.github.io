@@ -47,15 +47,13 @@ export default defineConfig({
         text: '题目描述',
         items: [
           { text: '简介', link: '/problem/' },
-          { text: '描述', link: '/problem/description' },
+          { text: '元数据', link: '/problem/metadata' },
         ]
       },
       {
         text: '题目类型',
         items: [
-          { text: '普通题', link: '/problem/normal' },
-          { text: '提交答案', link: '/problem/submit-answer' },
-          { text: '交互题', link: '/problem/interactive' },
+          { text: '题型', link: '/problem/category' },
         ]
       },
       {
