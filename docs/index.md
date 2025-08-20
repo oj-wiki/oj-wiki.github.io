@@ -11,17 +11,17 @@ hero:
       text: 介绍
       link: /online-judge/
     - theme: alt
-      text: 沙箱
-      link: /code-execution/
+      text: 评测
+      link: /judge/
 
 features:
   - title: 比赛
     details: 多种类型赛制的记分规范和细节
   - title: 题目
     details: 多种类型题目的设计规范和细节
-  - title: 系统架构
+  - title: 架构
     details: 在线评测系统的系统架构
-  - title: 代码执行
-    details: 安全沙箱的实现细节
+  - title: 评测
+    details: 评测流程和安全沙箱的实现细节
 ---
 

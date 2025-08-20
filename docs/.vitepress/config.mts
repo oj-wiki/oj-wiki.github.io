@@ -35,54 +35,54 @@ export default defineConfig({
         text: '比赛赛制',
         items: [
           { text: '简介', link: '/contest/' },
-          { text: 'OI', link: '/contest/' },
-          { text: 'IOI', link: '/contest/' },
-          { text: 'ICPC', link: '/contest/' },
-          { text: 'Codeforces', link: '/contest/' },
+          { text: 'OI', link: '/contest/oi' },
+          { text: 'IOI', link: '/contest/ioi' },
+          { text: 'ICPC', link: '/contest/icpc' },
+          { text: 'Codeforces', link: '/contest/codeforces' },
         ]
       },
       {
         text: '比赛流程管理',
         items: [
-          { text: '排行榜', link: '/contest/' },
-          { text: '评测 & 重测', link: '/contest/' },
-          { text: '组队', link: '/contest/' },
-          { text: '公告', link: '/contest/' },
-          { text: '反作弊', link: '/contest/' },
+          { text: '排行榜', link: '/contest/leaderboard' },
+          { text: '评测 & 重测', link: '/contest/rejudge' },
+          { text: '组队', link: '/contest/team' },
+          { text: '公告', link: '/contest/announcement' },
+          { text: '反作弊', link: '/contest/anti-cheat' },
         ]
       }],
       '/problem/': [{
         text: '题目描述',
         items: [
           { text: '简介', link: '/problem/' },
-          { text: '标准组件', link: '/problem/' },
+          { text: '描述', link: '/problem/description' },
         ]
       },
       {
         text: '题目类型',
         items: [
-          { text: '普通题', link: '/problem/' },
-          { text: '提交答案', link: '/problem/' },
-          { text: '交互题', link: '/problem/' },
+          { text: '普通题', link: '/problem/normal' },
+          { text: '提交答案', link: '/problem/submit-answer' },
+          { text: '交互题', link: '/problem/interactive' },
         ]
       },
       {
         text: '测试数据',
         items: [
-          { text: '数据类型', link: '/problem/' },
-          { text: 'SPJ', link: '/problem/' },
+          { text: '数据类型', link: '/problem/test-data' },
+          { text: 'SPJ', link: '/problem/spj' },
         ]
       },
       {
         text: '交换格式',
         items: [
-          { text: '交换格式', link: '/problem/' },
+          { text: '交换格式', link: '/problem/exchange-format' },
         ]
       },
       {
         text: '出题工具',
         items: [
-          { text: 'Generator & Validator', link: '/problem/' },
+          { text: 'testlib', link: '/problem/testlib' },
         ]
       }],
       '/system-architecture/': [{
@@ -90,18 +90,18 @@ export default defineConfig({
         items: [
           { text: '简介', link: '/system-architecture/' },
           { text: '前端', link: '/system-architecture/front-end' },
-          { text: '后端', link: '/system-architecture/' },
-          { text: '任务调度', link: '/system-architecture/' },
-          { text: '评测机', link: '/system-architecture/' },
-          { text: '数据存储', link: '/system-architecture/' },
+          { text: '后端', link: '/system-architecture/back-end' },
+          { text: '任务调度', link: '/system-architecture/queue' },
+          { text: '评测机', link: '/system-architecture/judger' },
+          { text: '数据存储', link: '/system-architecture/storage' },
         ]
       },
       {
         text: '扩展',
         items: [
-          { text: '缓存管理', link: '/system-architecture/' },
-          { text: '可观测化', link: '/system-architecture/' },
-          { text: '水平扩展', link: '/system-architecture/' },
+          { text: '缓存管理', link: '/system-architecture/cache' },
+          { text: '可观测化', link: '/system-architecture/observability' },
+          { text: '水平扩展', link: '/system-architecture/scale' },
         ]
       }],
       '/judge/': [{
