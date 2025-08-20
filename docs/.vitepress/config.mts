@@ -135,7 +135,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/oj-wiki/oj-wiki' }
+      { icon: 'github', link: 'https://github.com/oj-wiki/oj-wiki.github.io' }
     ]
   }
 })
