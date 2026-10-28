@@ -35,6 +35,10 @@ export default defineConfig({
         text: '比赛赛制',
         items: [
           { text: '简介', link: '/contest/' },
+          { text: 'OI 赛制', link: '/contest/#oi-赛制' },
+          { text: 'IOI 赛制', link: '/contest/#ioi-赛制' },
+          { text: 'ICPC 赛制', link: '/contest/#icpc-赛制' },
+          { text: 'Codeforces 赛制', link: '/contest/#codeforces-赛制' },
         ]
       },
       {
@@ -62,6 +66,7 @@ export default defineConfig({
           { text: '数据类型', link: '/problem/test-data' },
           { text: 'SPJ', link: '/problem/spj' },
           { text: '记分策略', link: '/problem/scoring' },
+          { text: 'testlib', link: '/problem/testlib' },
         ]
       },
       {
@@ -70,12 +75,7 @@ export default defineConfig({
           { text: '交换格式', link: '/problem/exchange-format' },
         ]
       },
-      {
-        text: '出题工具',
-        items: [
-          { text: 'testlib', link: '/problem/testlib' },
-        ]
-      }],
+      ],
       '/system-architecture/': [{
         text: '系统架构',
         items: [
