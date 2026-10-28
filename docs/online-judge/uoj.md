@@ -1,84 +1,22 @@
-# Universal Online Judge
+# Universal Online Judge（UOJ）
 
-https://github.com/UniversalOJ/UOJ-System
+[UOJ-System](https://github.com/UniversalOJ/UOJ-System) 是 Universal Online Judge 的社区版实现，提供题库、用户提交、比赛和评测相关功能。仓库包含 Web 应用及评测服务相关代码，项目文档和部署指北位于 [UniversalOJ GitHub 组织](https://github.com/UniversalOJ)。
 
-- Git clone
+## 架构与能力
 
-## 安装
+UOJ 的应用端管理题目、提交和竞赛数据；评测端执行代码并将结果反馈给应用。题目可按不同评测需求配置标准 checker 或自定义评测程序。部署评测服务时需同时考虑题目数据、评测端口/通信凭据、编译器运行时和沙箱权限。
 
-```sh
-apt install zip unzip apache2 libapache2-mod-xsendfile libapache2-mod-php php php-dev php-pear php-zip php-mysql php-mbstring php-gd php-intl php-xsl g++ make re2c libyaml-dev
-pecl install yaml
-apt install mariadb-server
+社区版有多个分支和部署方式，PHP、Web 服务和数据库依赖可能因分支而异。请优先跟随当前仓库的部署文档，而不要把旧版 Apache/PHP 安装命令复制到新环境。特别是 PHP 与系统库版本不兼容时，应先确认项目支持矩阵，再选择运行环境。
 
-printf "\n\n==> Setting LAMP configs\n"
-    #Set Apache UOJ site conf
-    cat >/etc/apache2/sites-available/000-uoj.conf <<UOJEOF
-<VirtualHost *:80>
-    #ServerName local_uoj.ac
-    ServerAdmin opensource@uoj.ac
-    DocumentRoot /var/www/uoj
+## 安全与运维
 
-    SetEnvIf Request_URI "^/judge/.*$" judgelog
-    #LogLevel info ssl:warn
-    ErrorLog \${APACHE_LOG_DIR}/uoj_error.log
-    CustomLog \${APACHE_LOG_DIR}/uoj_judge.log common env=judgelog
-    CustomLog \${APACHE_LOG_DIR}/uoj_access.log combined env=!judgelog
+- 将评测机与 Web 服务、数据库分开运行，并限制评测机对内网和公网的访问。
+- 使用非特权账号运行服务；题目数据、上传目录和运行时目录应分别设置最小权限。
+- 在升级前备份数据库和题目数据，并在测试环境验证升级脚本、评测通信和常用题型。
+- 评测机上线前验证沙箱对超时、内存、进程数和文件访问的限制。
 
-    XSendFile On
-    XSendFilePath /var/uoj_data
-    XSendFilePath /var/www/uoj/app/storage
-    XSendFilePath /opt/uoj/judger/uoj_judger/include
-</VirtualHost>
-UOJEOF
-    #Enable modules and make UOJ site conf enabled
-    a2ensite 000-uoj.conf && a2dissite 000-default.conf
-    a2enmod rewrite headers && sed -i -e '172s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
-    #Create UOJ session save dir and make PHP extensions available
-    mkdir --mode=733 /var/lib/php/uoj_sessions && chmod +t /var/lib/php/uoj_sessions
+## 参考
 
-# Set webroot path
-    ln -sf $PWD /var/www/uoj
-    chown -R www-data /var/www/uoj/app/storage
-    # Set web config file
-    php -a <<UOJEOF
-\$config = include '/var/www/uoj/app/.default-config.php';
-\$config['judger']['socket']['port']='$_judger_socket_port_';
-file_put_contents('/var/www/uoj/app/.config.php', "<?php\nreturn ".str_replace('\'_httpHost_\'','UOJContext::httpHost()',var_export(\$config, true)).";\n");
-UOJEOF
-
-#Set uoj_data path
-    mkdir -p /var/uoj_data/upload
-    chown -R www-data:www-data /var/uoj_data
-    #Using cli upgrade to latest
-    php /var/www/uoj/app/cli.php upgrade:latest
-```
-
-SQL
-
-```sql
-use mysql;
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root');
-use app_uoj233
-```
-
-```bash
-cat >/etc/mysql/conf.d/uoj_mysqld.cnf <<UOJEOF
-[mysqld]
-default-time-zone='+8:00'
-character-set-server=utf8mb4
-collation-server=utf8mb4_unicode_ci
-init_connect='SET NAMES utf8mb4'
-init_connect='SET collation_connection = utf8mb4_unicode_ci'
-skip-character-set-client-handshake
-sql-mode=ONLY_FULL_GROUP_BY,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
-UOJEOF
-mysql < app_uoj233.sql
-mysql < add_judger.sql 
-Field 'ip' doesn't have a default value
-```
-
-Current issue, compatibility issue with PHP 8.2
-
-PHP 7.4:
-https://dmvrtx.me/2023/06/php-7.4-on-debian-bookworm/
+- [UOJ-System 源码](https://github.com/UniversalOJ/UOJ-System)
+- [UniversalOJ 部署指北](https://github.com/UniversalOJ/UniversalOJ.github.io)
+- [Universal Problem Set](https://github.com/UniversalOJ/UniversalProblemSet)
