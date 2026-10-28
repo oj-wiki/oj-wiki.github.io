@@ -4,14 +4,20 @@ Python 通常使用 [CPython](https://www.python.org) 或者 [PyPy](https://pypy
 
 Python 作为脚本语言，没有通常意义上的编译，而是使用解释器运行。
 
-不过，因为字节码的设定，可以先生成字节码来加速运行（文件名为 `foo.py`）：
+Python 解释器通常会在导入模块时自动生成缓存字节码，但直接运行脚本时仍以源码为入口。可以用 `py_compile` 预先检查语法并生成缓存文件（文件名为 `foo.py`）：
 
 ```sh
-python3 -c "import py_compile; py_compile.compile('foo.py', 'foo', doraise=True)"
+python3 -m py_compile foo.py
 ```
 
-输出的执行代码为 `foo.pyc` 需要和源码一同解释运行：
+生成的 `.pyc` 文件一般位于缓存目录中，由解释器按缓存规则使用；OJ 通常直接运行源码：
 
 ```sh
 python3 foo.py
 ```
+
+## OJ 配置要点
+
+平台应明确使用 CPython 或 PyPy 及其版本；两者的性能、内存用量和部分实现细节不同。运行提交时应关闭不必要的字节码写入或将缓存目录指向任务工作区，并设置隔离的工作目录，避免不同提交共享可写文件。
+
+Python 依赖不应在每次评测时从网络安装。若平台允许第三方包，应在受控镜像中预装并固定版本。CPU、墙钟时间和内存上限由沙箱控制；解释器参数可辅助管理运行时，不能替代操作系统层限制。

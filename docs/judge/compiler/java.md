@@ -8,7 +8,7 @@ Java 编译器通常使用 [openJDK](https://openjdk.org)。
 javac ./Main.java
 ```
 
-输出的可执行文件（字节码）为 `java.class`。
+输出的字节码文件为 `Main.class`。
 
 ```sh
 java Main
@@ -28,3 +28,9 @@ jar cvf Main.jar *.class
 ```sh
 java -jar Main.jar
 ```
+
+## OJ 配置要点
+
+编译和运行时应使用相互兼容且明确的 JDK/JRE 版本。平台需公布 Java 版本及默认堆大小；沙箱的进程内存限制还包括 JVM 本身和本地内存，不能简单等同于 `-Xmx`。若需设置堆上限，应为类元数据、线程栈和运行时开销预留空间。
+
+运行时通常以 `java Main` 或 `java -jar Main.jar` 启动。编译阶段应设置字符编码和输出目录，避免把上次提交留下的 `.class` 文件混入本次结果；清理工作区后再编译可避免陈旧字节码造成误判。

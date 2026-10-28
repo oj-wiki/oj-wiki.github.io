@@ -20,14 +20,21 @@ export default defineConfig({
         text: '简介',
         items: [
           { text: '在线评测系统', link: '/online-judge/' },
+          { text: '经典 OJ 与竞赛平台', link: '/online-judge/classic-platforms' },
+          { text: '常见高校 OJ', link: '/online-judge/university-oj' },
         ]
       }, {
         text: '开源 OJ',
         items: [
           { text: 'Hydro', link: '/online-judge/hydro' },
+          { text: 'DMOJ', link: '/online-judge/dmoj' },
           { text: 'UOJ', link: '/online-judge/uoj' },
           { text: 'LOJ', link: '/online-judge/lyrio' },
           { text: 'DomJudge', link: '/online-judge/domjudge' },
+          { text: 'QDUOJ', link: '/online-judge/qduoj' },
+          { text: 'HOJ', link: '/online-judge/hoj' },
+          { text: 'HUSTOJ', link: '/online-judge/hustoj' },
+          { text: 'VJudge', link: '/online-judge/vjudge' },
           { text: 'Misc', link: '/online-judge/misc' },
         ]
       }],
@@ -111,7 +118,9 @@ export default defineConfig({
           { text: '资源限制（rlimit）', link: '/judge/sandbox/rlimit' },
           { text: '安全计算（seccomp）', link: '/judge/sandbox/seccomp' },
           { text: '调试（ptrace）', link: '/judge/sandbox/ptrace' },
+          { text: '文件访问控制（Landlock）', link: '/judge/sandbox/landlock' },
           { text: '常见恶意代码', link: '/judge/sandbox/malicious-code' },
+          { text: '跨平台方案与实现', link: '/judge/sandbox/misc' },
         ]
       },
       {
